@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:safa_soft_task/core/utils/ext.dart';
 import 'package:safa_soft_task/features/home_screen/presentation/manger/home_screen_cubit.dart';
 import 'package:safa_soft_task/features/home_screen/presentation/manger/home_screen_states.dart';
+import 'package:safa_soft_task/features/scan_mrz/presentation/screens/scan_mrz.dart';
 
 import '../../../saved_mrz/presentation/screens/saved_mrz_screen.dart';
 
@@ -28,8 +29,7 @@ class HomeScreen extends StatelessWidget {
                       minimumSize: MaterialStateProperty.resolveWith((states) =>const Size(200, 45))
                     ),
                     onPressed: (){
-                      context.read<HomeScreenCubit>().showCustomBottomSheet(context);
-
+                      context.pushScreen(ScanMrz());
                     }, child: const Text("Scan Mrz",style: TextStyle(
                   color: Colors.white
                 ),))),

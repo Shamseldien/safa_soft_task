@@ -9,7 +9,7 @@ class MrzResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Result"),
+        title: const Text("Result"),
       ),
       body:  SingleChildScrollView(
         padding: const EdgeInsets.all(10),
@@ -28,9 +28,7 @@ class MrzResultScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: ElevatedButton.icon(
                 onPressed: () {
-                  context.read<MrzCubit>().saveExtractedData(
-                    context,
-                  );
+                  context.read<MrzCubit>().saveMrz(context);
                 },
                 label: const Text('Save'),
                 icon: const Icon(Icons.save),

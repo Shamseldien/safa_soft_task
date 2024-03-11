@@ -10,46 +10,6 @@ class HomeScreenCubit extends Cubit<HomeScreenStates> {
 
   static HomeScreenCubit get(context) => BlocProvider.of(context);
 
-
-  void showCustomBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) {
-          return SizedBox(
-            height: 250,
-            width: double.infinity,
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextButton(
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.orange),
-                          minimumSize: MaterialStateProperty.resolveWith((states) =>const Size(200, 45))
-                      ),
-                      onPressed: () {
-                        context.read<MrzCubit>().pickImageFromGallery(context);
-                      }, child:const Text("Scan From File",style: TextStyle(
-                    color: Colors.white
-                  ),)),
-                const SizedBox(height: 30,),
-                  TextButton(
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.deepOrange),
-                          minimumSize: MaterialStateProperty.resolveWith((states) =>const Size(200, 45))
-                      ),
-                      onPressed: () {
-                        context.pushScreen(ScanMrz());
-                      }, child: const Text("Scan From Camera",style: TextStyle(
-                      color: Colors.white
-                  ))),
-                ],
-              ),
-            ),
-          );
-        }
-    );
-  }
 }
 
 
